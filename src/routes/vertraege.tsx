@@ -28,6 +28,7 @@ function VertraegePage() {
   return (
     <>
       <PageHeader
+        eyebrow="Verträge"
         title="Vertragsplattform"
         description="Verträge erstellen, prüfen und mit Freigabe-Workflow verwalten."
         actions={
@@ -39,7 +40,7 @@ function VertraegePage() {
 
       <div className="grid gap-4 md:grid-cols-2">
         {contracts.map((c) => (
-          <Card key={c.id}>
+          <Card key={c.id} className="corner-frame">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div>
@@ -52,9 +53,7 @@ function VertraegePage() {
               </div>
             </CardHeader>
             <CardContent className="flex items-center justify-between">
-              <span className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-                {formatCurrency(c.value)}
-              </span>
+              <span className="display text-2xl">{formatCurrency(c.value)}</span>
               {c.status === "freigabe" ? (
                 <div className="flex gap-2">
                   <Button size="sm" variant="outline">

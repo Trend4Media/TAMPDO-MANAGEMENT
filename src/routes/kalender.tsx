@@ -21,6 +21,7 @@ function KalenderPage() {
   return (
     <>
       <PageHeader
+        eyebrow="Kalender"
         title="Firmenkalender"
         description="Termine, Shoots und Deadlines der Talente an einem Ort."
         actions={
@@ -34,21 +35,19 @@ function KalenderPage() {
         {events.map((e) => (
           <Card key={e.id}>
             <CardContent className="flex items-center gap-4 p-4">
-              <div className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-brand-50 text-brand-700 dark:bg-brand-950 dark:text-brand-300">
-                <span className="text-xs">
+              <div className="flex h-12 w-12 flex-col items-center justify-center rounded-[var(--radius-sharp)] border border-line text-gold">
+                <span className="text-[10px] uppercase tracking-wider">
                   {new Date(e.date).toLocaleDateString("de-DE", {
                     month: "short",
                   })}
                 </span>
-                <span className="text-lg font-semibold leading-none">
+                <span className="display text-lg leading-none">
                   {new Date(e.date).getDate()}
                 </span>
               </div>
               <div className="flex-1">
-                <p className="font-medium text-slate-900 dark:text-slate-100">
-                  {e.title}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="font-medium text-ivory">{e.title}</p>
+                <p className="text-xs text-muted">
                   {e.talent} · {formatDate(e.date)}
                 </p>
               </div>

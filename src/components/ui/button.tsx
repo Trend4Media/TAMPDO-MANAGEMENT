@@ -3,15 +3,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-sharp)] text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-brand-600 text-white hover:bg-brand-700",
+        // Gold-Fill → Ghost-Hover mit Gold-Glow
+        default:
+          "bg-[linear-gradient(135deg,#E6C36A,#B8923E)] text-emerald-deep hover:bg-none hover:bg-transparent hover:text-gold hover:ring-1 hover:ring-gold hover:shadow-[0_0_18px_-2px_rgba(201,168,76,0.5)]",
         outline:
-          "border border-slate-300 bg-white text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800",
-        ghost:
-          "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800",
+          "border border-line bg-transparent text-ivory hover:border-gold hover:text-gold",
+        ghost: "text-ivory-dim hover:bg-white/5 hover:text-ivory",
       },
       size: {
         default: "h-10 px-4 py-2",

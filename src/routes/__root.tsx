@@ -13,17 +13,16 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootLayout() {
   return (
-    <div className="flex h-full bg-slate-50 dark:bg-slate-950">
+    <div className="grain flex h-full">
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         {!isSupabaseConfigured ? (
-          <div className="bg-amber-50 px-6 py-2 text-center text-xs text-amber-800 dark:bg-amber-950 dark:text-amber-300">
-            Demo-Modus – kein Supabase-Backend verbunden. Trage die Keys in{" "}
-            <code>.env</code> ein, um echte Daten zu nutzen.
+          <div className="border-b border-gold/30 bg-gold/10 px-6 py-2 text-center text-[11px] uppercase tracking-[0.2em] text-gold">
+            Demo-Modus · kein Supabase-Backend verbunden
           </div>
         ) : null}
-        <main className="flex-1 overflow-y-auto px-6 py-6">
-          <div className="mx-auto max-w-6xl space-y-6">
+        <main className="flex-1 overflow-y-auto px-8 py-8">
+          <div className="mx-auto max-w-6xl space-y-8">
             <Outlet />
           </div>
         </main>

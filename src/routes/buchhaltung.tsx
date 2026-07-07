@@ -1,12 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Plus, TrendingUp, TrendingDown } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { bookings } from "@/lib/demo-data";
 import { cn, formatCurrency, formatDate } from "@/lib/utils";
@@ -27,6 +22,7 @@ function BuchhaltungPage() {
   return (
     <>
       <PageHeader
+        eyebrow="Finanzen"
         title="Buchhaltung"
         description="Einnahmen, Ausgaben und Saldo der TAMPDO MANAGEMENT UG."
         actions={
@@ -40,10 +36,10 @@ function BuchhaltungPage() {
         <Card>
           <CardHeader className="flex-row items-center justify-between">
             <CardTitle>Einnahmen</CardTitle>
-            <TrendingUp className="h-4 w-4 text-emerald-500" />
+            <TrendingUp className="h-4 w-4 text-[#5fd6ae]" />
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">
+            <p className="display text-2xl text-[#5fd6ae]">
               {formatCurrency(einnahmen)}
             </p>
           </CardContent>
@@ -51,20 +47,20 @@ function BuchhaltungPage() {
         <Card>
           <CardHeader className="flex-row items-center justify-between">
             <CardTitle>Ausgaben</CardTitle>
-            <TrendingDown className="h-4 w-4 text-rose-500" />
+            <TrendingDown className="h-4 w-4 text-[#e0a3a3]" />
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold text-rose-600 dark:text-rose-400">
+            <p className="display text-2xl text-[#e0a3a3]">
               {formatCurrency(ausgaben)}
             </p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="corner-frame">
           <CardHeader>
             <CardTitle>Saldo</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+            <p className="display text-2xl text-gradient-gold">
               {formatCurrency(saldo)}
             </p>
           </CardContent>
@@ -75,35 +71,28 @@ function BuchhaltungPage() {
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400">
+              <thead className="border-b border-line text-left text-[11px] uppercase tracking-[0.2em] text-muted">
                 <tr>
-                  <th className="px-5 py-3 font-medium">Datum</th>
-                  <th className="px-5 py-3 font-medium">Beschreibung</th>
-                  <th className="px-5 py-3 font-medium">Kategorie</th>
-                  <th className="px-5 py-3 text-right font-medium">Betrag</th>
+                  <th className="px-5 py-4 font-medium">Datum</th>
+                  <th className="px-5 py-4 font-medium">Beschreibung</th>
+                  <th className="px-5 py-4 font-medium">Kategorie</th>
+                  <th className="px-5 py-4 text-right font-medium">Betrag</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tbody className="divide-y divide-line/60">
                 {bookings.map((b) => (
-                  <tr
-                    key={b.id}
-                    className="hover:bg-slate-50 dark:hover:bg-slate-900"
-                  >
-                    <td className="px-5 py-3 text-slate-500 dark:text-slate-400">
+                  <tr key={b.id} className="transition-colors hover:bg-white/5">
+                    <td className="px-5 py-4 text-muted">
                       {formatDate(b.date)}
                     </td>
-                    <td className="px-5 py-3 font-medium text-slate-900 dark:text-slate-100">
+                    <td className="px-5 py-4 font-medium text-ivory">
                       {b.description}
                     </td>
-                    <td className="px-5 py-3 text-slate-700 dark:text-slate-300">
-                      {b.category}
-                    </td>
+                    <td className="px-5 py-4 text-ivory-dim">{b.category}</td>
                     <td
                       className={cn(
-                        "px-5 py-3 text-right font-medium",
-                        b.amount > 0
-                          ? "text-emerald-600 dark:text-emerald-400"
-                          : "text-rose-600 dark:text-rose-400",
+                        "px-5 py-4 text-right font-medium",
+                        b.amount > 0 ? "text-[#5fd6ae]" : "text-[#e0a3a3]",
                       )}
                     >
                       {formatCurrency(b.amount)}

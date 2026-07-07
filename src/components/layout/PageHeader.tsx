@@ -1,27 +1,33 @@
 import type { ReactNode } from "react";
 
 export function PageHeader({
+  eyebrow,
   title,
   description,
   actions,
 }: {
+  eyebrow?: string;
   title: string;
   description?: string;
   actions?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800">
-      <div>
-        <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
-          {title}
-        </h1>
-        {description ? (
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            {description}
-          </p>
+    <div className="space-y-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <div className="eyebrow mb-3">{eyebrow ?? "TAMPDO Management"}</div>
+          <h1 className="display text-3xl sm:text-4xl">{title}</h1>
+          {description ? (
+            <p className="mt-3 max-w-2xl text-sm text-ivory-dim">
+              {description}
+            </p>
+          ) : null}
+        </div>
+        {actions ? (
+          <div className="flex items-center gap-2">{actions}</div>
         ) : null}
       </div>
-      {actions ? <div className="flex items-center gap-2">{actions}</div> : null}
+      <hr className="gold-hairline" />
     </div>
   );
 }

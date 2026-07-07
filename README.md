@@ -11,6 +11,13 @@ um die Agentur komplett zu leiten, zu führen und zu planen.
 | 📅 **Firmenkalender** | Termine, Shoots und Deadlines der Talente                | Grundgerüst ✅ |
 | 📄 **Vertragsplattform** | Verträge erstellen & prüfen – mit Freigabe-Workflow   | Grundgerüst ✅ |
 | 💶 **Buchhaltung**    | Einnahmen, Ausgaben und Saldo                            | Grundgerüst ✅ |
+| 🎨 **Brand** (`/brand`) | Living Style-Guide der Corporate Identity „Emerald Prestige" | ✅ |
+
+## Corporate Identity
+
+Das Design folgt der CI **„Emerald Prestige"** (Emerald + Gold, editorial).
+Vollständige Guidelines: [`BRAND.md`](./BRAND.md) · live in der App unter `/brand`.
+Schriften (Archivo Black, Hind) sind self-hosted unter `public/fonts/`.
 
 ## Tech-Stack
 

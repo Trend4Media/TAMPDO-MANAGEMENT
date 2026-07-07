@@ -20,6 +20,7 @@ function CrmPage() {
   return (
     <>
       <PageHeader
+        eyebrow="CRM"
         title="CRM & Talente"
         description="Talente, Kontakte und Manager der Agentur verwalten."
         actions={
@@ -33,39 +34,28 @@ function CrmPage() {
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400">
+              <thead className="border-b border-line text-left text-[11px] uppercase tracking-[0.2em] text-muted">
                 <tr>
-                  <th className="px-5 py-3 font-medium">Name</th>
-                  <th className="px-5 py-3 font-medium">Plattform</th>
-                  <th className="px-5 py-3 font-medium">Follower</th>
-                  <th className="px-5 py-3 font-medium">Manager</th>
-                  <th className="px-5 py-3 font-medium">Status</th>
+                  <th className="px-5 py-4 font-medium">Name</th>
+                  <th className="px-5 py-4 font-medium">Plattform</th>
+                  <th className="px-5 py-4 font-medium">Follower</th>
+                  <th className="px-5 py-4 font-medium">Manager</th>
+                  <th className="px-5 py-4 font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tbody className="divide-y divide-line/60">
                 {talents.map((t) => (
-                  <tr
-                    key={t.id}
-                    className="hover:bg-slate-50 dark:hover:bg-slate-900"
-                  >
-                    <td className="px-5 py-3">
-                      <div className="font-medium text-slate-900 dark:text-slate-100">
-                        {t.name}
-                      </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
-                        {t.handle}
-                      </div>
+                  <tr key={t.id} className="transition-colors hover:bg-white/5">
+                    <td className="px-5 py-4">
+                      <div className="font-medium text-ivory">{t.name}</div>
+                      <div className="text-xs text-muted">{t.handle}</div>
                     </td>
-                    <td className="px-5 py-3 text-slate-700 dark:text-slate-300">
-                      {t.platform}
-                    </td>
-                    <td className="px-5 py-3 text-slate-700 dark:text-slate-300">
+                    <td className="px-5 py-4 text-ivory-dim">{t.platform}</td>
+                    <td className="px-5 py-4 text-ivory-dim">
                       {t.follower.toLocaleString("de-DE")}
                     </td>
-                    <td className="px-5 py-3 text-slate-700 dark:text-slate-300">
-                      {t.manager}
-                    </td>
-                    <td className="px-5 py-3">
+                    <td className="px-5 py-4 text-ivory-dim">{t.manager}</td>
+                    <td className="px-5 py-4">
                       <Badge variant={statusVariant(t.status)}>{t.status}</Badge>
                     </td>
                   </tr>
